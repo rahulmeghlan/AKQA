@@ -20,7 +20,7 @@
         <p class="col-md-9">Items you have added to your basket are shown below.
             Adjust the quantities or remove items before continuing your purchase.</p>
     </div>
-    <form class="row">
+    <form class="row" action="myAPI" method="POST">
         <table class="table">
             <thead>
             <th class="col-md-4">Product</th>
@@ -33,8 +33,8 @@
                 <td class="col-md-4">Cotton T-Shirt, Medium</td>
                 <td class="col-md-2">1.99</td>
                 <td class="col-md-2">
-                    <input type="text" class="qty" pattern="[0-9]" name="cottonTShirt"/>
-
+                    <input type="text" class="qty" name="cotton_qty"/>
+                    <input type="hidden" name="cotton_cost"/>
                     <div class="button-grp clearfix">
                         <span class="add">+</span>
                         <span class="subtract">-</span>
@@ -47,7 +47,8 @@
                 <td class="col-md-4">BaseballCap, One Size</td>
                 <td class="col-md-2">2.99</td>
                 <td class="col-md-2">
-                    <input type="text" class="qty" name="baseBall"/>
+                    <input type="text" class="qty" name="baseBall_qty"/>
+                    <input type="hidden" name="baseBall_cost"/>
 
                     <div class="button-grp clearfix">
                         <span class="add">+</span>
@@ -61,7 +62,8 @@
                 <td class="col-md-4">Swim Shorts, Medium</td>
                 <td class="col-md-2">3.99</td>
                 <td class="col-md-2">
-                    <input type="text" class="qty" name="cottonTShirt"/>
+                    <input type="text" class="qty" name="swim_qty"/>
+                    <input type="hidden" name="swim_cost"/>
 
                     <div class="button-grp clearfix">
                         <span class="add">+</span>
@@ -76,7 +78,7 @@
         <div class="subtotal">
             <label for="subtotal" class="col-md-8">SubTotal</label>
             <span class="col-md-2">12</span>
-            <input type="hidden" id="subtotal" name="vat" value="£ 12">
+            <input type="hidden" id="subtotal" name="subtotal" value="£ 12">
         </div>
         <div class="vat">
             <label class="col-md-8">Vat @ 20%</label>

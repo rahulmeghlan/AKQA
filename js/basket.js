@@ -29,10 +29,12 @@ var AKQA = {};
 
     // Local method to calculate subtotal before calculation of VAT
     var getSubTotal = function () {
-        var sum = 0;
+        var sum = 0, count = 0;
         for (var product in products) {
             sum += (products[product].qty * products[product].price);
+            count++;
         }
+        if (!count) disableSubmit();
         return parseFloat(sum.toFixed(2));
     };
 
@@ -51,17 +53,38 @@ var AKQA = {};
         var qty = products[this.productType].qty;
         $elem.find("input").val(qty);
         $elem.find(".result").text(getProductPrice.call(this, qty));
+        $elem.find("input[type='hidden']").val(getProductPrice.call(this, qty));
         buildTotal();
     };
 
-    var buildTotal = function(){
+    var buildTotal = function () {
         $(".subtotal input").val(getSubTotal());
         $(".subtotal span").text(getSubTotal());
         $(".vat input").val(getVat());
         $(".vat span").text(getVat());
         $(".total input").val(getTotal());
         $(".total span").text(getTotal());
-    }
+    };
+
+    var disableSubmit = function () {
+        $("input[type='submit']").attr("disabled", "disabled");
+    };
+
+    var sendData = function (data) {
+        $.ajax({
+            url: "dummyUrl",
+            method: "POST",
+            dataType: "json",
+            data: data,
+            success: function (res) {
+                alert("Successfully Posted");
+            },
+            error: function (res) {
+                alert("Error While Posting");
+            }
+        });
+
+    };
 
     // Local method to bind all the events of the form
     var bindEvents = function () {
@@ -97,6 +120,18 @@ var AKQA = {};
             $elem.remove();
             buildTotal();
         });
+
+        $("form").on("submit", function (e) {
+            e.preventDefault();
+            var obj = {};
+            for (var i = 0; i < $("input").length; i++) {
+                var $elem = $("input:eq(" + i + ")");
+                if ($elem.attr("type") != "submit") {
+                    obj[$elem.attr("name")] = $elem.val();
+                }
+            }
+            sendData(obj);
+        })
     };
 
     // Entry point to initialize the data-sets
