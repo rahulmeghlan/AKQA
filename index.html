@@ -11,7 +11,7 @@
 <body>
 <div class="container">
     <div class="row">
-        <h1 class="col-md-12"><img src="images/logo.png" alt="AKQA" /></h1>
+        <h1 class="col-md-12"><img src="images/logo.png" alt="AKQA"/></h1>
     </div>
     <div class="row">
         <h2 class="col-md-12">Your Basket</h2>
@@ -21,7 +21,7 @@
             Adjust the quantities or remove items before continuing your purchase.</p>
     </div>
     <form class="row" action="myAPI" method="POST">
-        <table class="table">
+        <table class="table table-hover">
             <thead>
             <th class="col-md-4">Product</th>
             <th class="col-md-2">Price</th>
@@ -35,6 +35,7 @@
                 <td class="col-md-2">
                     <input type="text" class="qty" name="cotton_qty"/>
                     <input type="hidden" name="cotton_cost"/>
+
                     <div class="button-grp clearfix">
                         <span class="add">+</span>
                         <span class="subtract">-</span>
@@ -94,6 +95,11 @@
         <input type="submit" class="btn btn-primary pull-right" value="Buy Now"/>
     </form>
 </div>
+
+<footer>
+    <span class="co-name">AKQA Ltd.</span>
+    <span>Registered in England</span>
+</footer>
 
 <script type="text/javascript" src="libs/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="js/basket.js"></script>

@@ -3,7 +3,10 @@
 */
 
 body {
-    background-color: #efefef;
+    background: -webkit-linear-gradient(#fff 40%, #e1e1e1); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#fff 40%, #e1e1e1); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#fff 40%, #e1e1e1); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#fff 40%, #e1e1e1); /* Standard syntax */
 }
 
 body, h1, h2, p {
@@ -24,12 +27,25 @@ p {
 
 input[type=submit] {
     margin-top: 50px;
+    background-color: #000066;
+    font-weight: bold;
+    font-size: 24px;
+    box-shadow: 3px 3px 4px #888888;
+}
+
+.btn-primary[disabled]{
+   background-color: #000066;
+    border-color: #000066;
 }
 
 tr td {
     font-weight: bold;
     font-size: 18px;
     color: #000;
+}
+
+form{
+    margin-bottom: 10%;
 }
 
 /*
@@ -64,7 +80,7 @@ tr td {
     margin-bottom: 2px;
 }
 
-.delete{
+.delete {
     cursor: pointer;
 }
 
@@ -84,6 +100,17 @@ tr td {
 .total {
     color: #000;
     margin-top: 20px;
+}
+
+footer {
+    background: #666666;
+    padding: 10px 0;
+    text-align: center;
+    color: #fff;
+}
+
+footer .co-name{
+    font-weight: bold;
 }
 
 /*
