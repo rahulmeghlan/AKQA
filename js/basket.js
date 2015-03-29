@@ -7,6 +7,8 @@ var AKQA = {};
         baseball: {price: 2.99, qty: 2},
         swim: {price: 3.99, qty: 3}};
 
+    var instances = {};
+
     // percentage of VAT to be added
     var VAT = 20;
 
@@ -92,7 +94,7 @@ var AKQA = {};
         // Handle Add Quantity of individual Items
         $(".add").on("click", function () {
             self.productType = $(this).parents("tr").data("producttype");
-            ns[self.productType].updateProductQuantity(++products[self.productType].qty);
+            instances[self.productType].updateProductQuantity(++products[self.productType].qty);
         });
         // Handle Subtract Quantity of individual Items
         $(".subtract").on("click", function () {
@@ -100,7 +102,7 @@ var AKQA = {};
             if (products[self.productType].qty === 0) {
                 return false;
             }
-            ns[self.productType].updateProductQuantity(--products[self.productType].qty);
+            instances[self.productType].updateProductQuantity(--products[self.productType].qty);
         });
         // Handle Change in Quantity of individual Items
         $(".qty").on("keyup change", function () {
@@ -110,7 +112,7 @@ var AKQA = {};
             // Giving some interval to remove and add a new number
             setTimeout(function () {
                 self.productType = $(_this).parents("tr").data("producttype");
-                ns[self.productType].updateProductQuantity(qty);
+                instances[self.productType].updateProductQuantity(qty);
             }, time);
         });
         // Handle delete of products
@@ -136,14 +138,14 @@ var AKQA = {};
 
     // Entry point to initialize the data-sets
     var init = function () {
-        ns.cotton = new ns.basket("cotton");
-        ns.cotton.updateProductQuantity();
+        instances.cotton = new ns.basket("cotton");
+        instances.cotton.updateProductQuantity();
 
-        ns.baseball = new ns.basket("baseball");
-        ns.baseball.updateProductQuantity();
+        instances.baseball = new ns.basket("baseball");
+        instances.baseball.updateProductQuantity();
 
-        ns.swim = new ns.basket("swim");
-        ns.swim.updateProductQuantity();
+        instances.swim = new ns.basket("swim");
+        instances.swim.updateProductQuantity();
 
         bindEvents.call(ns.basket);
     };
