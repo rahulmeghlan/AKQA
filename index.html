@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <title>AKQA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap.min.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Serif:400,700' rel='stylesheet' type='text/css'>
+
+    <link href="styles/styles.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h1 class="col-md-12">AKQA</h1>
+    </div>
+    <div class="row">
+        <h2 class="col-md-12">Your Basket</h2>
+    </div>
+    <div class="row">
+        <p class="col-md-9">Items you have added to your basket are shown below.
+            Adjust the quantities or remove items before continuing your purchase.</p>
+    </div>
+    <form class="row">
+        <table class="table">
+            <thead>
+            <th class="col-md-4">Product</th>
+            <th class="col-md-2">Price</th>
+            <th class="col-lg-2">Qty</th>
+            <th class="col-lg-2">Cost</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="col-md-4">Cotton T-Shirt, Medium</td>
+                <td class="col-md-2">1.99</td>
+                <td class="col-md-2">
+                    <input type="text" class="qty" name="cottonTShirt"/>
+
+                    <div class="button-grp clearfix">
+                        <span class="add">+</span>
+                        <span class="subtract">-</span>
+                    </div>
+                </td>
+                <td class="col-md-2">1.99</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="subtotal row">
+            <label for="subtotal" class="col-md-8">SubTotal</label>
+            <input type="text" id="subtotal" disabled name="vat" class="col-md-2" value="12">
+        </div>
+        <div class="vat row">
+            <label class="col-md-8">Vat @ 20%</label>
+            <input type="text" disabled name="vat" class="col-md-2" value="12">
+        </div>
+        <div class="total row">
+            <label class="col-md-8">Total</label>
+            <input type="text" disabled name="total" class="col-md-2" value="11">
+        </div>
+    </form>
+</div>
+</body>
+</html>

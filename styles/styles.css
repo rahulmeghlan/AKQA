@@ -1,0 +1,85 @@
+/*
+  General Styles
+*/
+
+body {
+    background-color: #efefef;
+}
+
+body, h1, h2, p {
+    font-family: 'Droid Sans', sans-serif;
+}
+
+h1, h2 {
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 14px;
+}
+
+input[disabled] {
+    border: none;
+    background: transparent;
+    text-align: right;
+    float: right;
+    padding-right: 5%;
+}
+
+/*
+ Component Specific Styles
+*/
+.qty {
+    width: 20%;
+    float: left
+}
+
+.button-grp {
+    float: left;
+    margin-left: 5px;
+    width: 18px;
+}
+
+.add, .subtract {
+    height: 12px;
+    float: left;
+    width: 18px;
+    background-color: #999;
+    line-height: 10px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    color: #fff;
+}
+
+.add {
+    margin-bottom: 2px;
+}
+
+.subtotal, .vat, .total {
+    color: #666;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.total {
+    color: #000;
+    margin-top: 20px;
+}
+
+/*
+ Media Queries
+*/
+@media (min-width: 992px) {
+    .container {
+        margin-top: 5%;
+    }
+    input[disabled]{
+        float: none;
+        padding-right: 1%;
+    }
+}
