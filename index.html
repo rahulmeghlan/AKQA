@@ -29,7 +29,7 @@
             <th class="col-lg-2">Cost</th>
             </thead>
             <tbody>
-            <tr>
+            <tr data-productType="cotton">
                 <td class="col-md-4">Cotton T-Shirt, Medium</td>
                 <td class="col-md-2">1.99</td>
                 <td class="col-md-2">
@@ -40,23 +40,57 @@
                         <span class="subtract">-</span>
                     </div>
                 </td>
-                <td class="col-md-2">1.99</td>
+                <td class="col-md-2 result"></td>
+            </tr>
+            <tr data-producttype="baseball">
+                <td class="col-md-4">BaseballCap, One Size</td>
+                <td class="col-md-2">2.99</td>
+                <td class="col-md-2">
+                    <input type="text" class="qty" name="baseBall"/>
+
+                    <div class="button-grp clearfix">
+                        <span class="add">+</span>
+                        <span class="subtract">-</span>
+                    </div>
+                </td>
+                <td class="col-md-2 result"></td>
+            </tr>
+            <tr data-producttype="swim">
+                <td class="col-md-4">Swim Shorts, Medium</td>
+                <td class="col-md-2">3.99</td>
+                <td class="col-md-2">
+                    <input type="text" class="qty" name="cottonTShirt"/>
+
+                    <div class="button-grp clearfix">
+                        <span class="add">+</span>
+                        <span class="subtract">-</span>
+                    </div>
+                </td>
+                <td class="col-md-2 result"></td>
             </tr>
             </tbody>
         </table>
-        <div class="subtotal row">
+        <div class="subtotal">
             <label for="subtotal" class="col-md-8">SubTotal</label>
-            <input type="text" id="subtotal" disabled name="vat" class="col-md-2" value="12">
+            <span class="col-md-2">12</span>
+            <input type="hidden" id="subtotal" name="vat" value="£ 12">
         </div>
-        <div class="vat row">
+        <div class="vat">
             <label class="col-md-8">Vat @ 20%</label>
-            <input type="text" disabled name="vat" class="col-md-2" value="12">
+            <span class="col-md-2">12</span>
+            <input type="hidden" name="vat" value="£ 12">
         </div>
-        <div class="total row">
+        <div class="total">
             <label class="col-md-8">Total</label>
-            <input type="text" disabled name="total" class="col-md-2" value="11">
+            <span class="col-md-2">12</span>
+            <input type="hidden" name="total" value="£ 11">
         </div>
+
+        <input type="submit" class="btn btn-primary pull-right" value="Buy Now"/>
     </form>
 </div>
+
+<script type="text/javascript" src="libs/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/basket.js"></script>
 </body>
 </html>

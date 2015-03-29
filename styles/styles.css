@@ -22,12 +22,23 @@ p {
     font-size: 14px;
 }
 
-input[disabled] {
+/*input[disabled] {
     border: none;
     background: transparent;
     text-align: right;
     float: right;
-    padding-right: 5%;
+    max-width: 20%;
+    color: #000;
+}*/
+
+input[type=submit] {
+    margin-top: 50px;
+}
+
+tr td {
+    font-weight: bold;
+    font-size: 18px;
+    color: #000;
 }
 
 /*
@@ -35,7 +46,8 @@ input[disabled] {
 */
 .qty {
     width: 20%;
-    float: left
+    float: left;
+    max-height: 30px;
 }
 
 .button-grp {
@@ -45,15 +57,16 @@ input[disabled] {
 }
 
 .add, .subtract {
-    height: 12px;
+    height: 14px;
     float: left;
     width: 18px;
     background-color: #999;
-    line-height: 10px;
+    line-height: 14px;
     text-align: center;
     display: inline-block;
     cursor: pointer;
     color: #fff;
+    font-weight: normal;
 }
 
 .add {
@@ -66,6 +79,13 @@ input[disabled] {
     font-weight: bold;
 }
 
+.subtotal span, .vat span, .total span {
+    text-align: right;
+    float: right;
+    max-width: 20%;
+    display: inline-block;
+}
+
 .total {
     color: #000;
     margin-top: 20px;
@@ -74,12 +94,20 @@ input[disabled] {
 /*
  Media Queries
 */
+
+@media (min-width: 768px) {
+    .subtotal span, .vat span, .total span {
+        float: right;
+    }
+}
+
 @media (min-width: 992px) {
     .container {
         margin-top: 5%;
     }
-    input[disabled]{
+
+    .subtotal span, .vat span, .total span {
         float: none;
-        padding-right: 1%;
+        padding: 0;
     }
 }
