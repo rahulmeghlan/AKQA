@@ -22,15 +22,6 @@ p {
     font-size: 14px;
 }
 
-/*input[disabled] {
-    border: none;
-    background: transparent;
-    text-align: right;
-    float: right;
-    max-width: 20%;
-    color: #000;
-}*/
-
 input[type=submit] {
     margin-top: 50px;
 }
