@@ -64,6 +64,10 @@ tr td {
     margin-bottom: 2px;
 }
 
+.delete{
+    cursor: pointer;
+}
+
 .subtotal, .vat, .total {
     color: #666;
     font-size: 18px;

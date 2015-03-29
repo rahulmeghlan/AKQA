@@ -19,7 +19,7 @@ var AKQA = {};
     // Prototypical child of basket component
     ns.basket.prototype.updateProductQuantity = function (qty) {
         products[this.productType].qty = typeof qty !== "undefined" ? qty : products[this.productType].qty;
-        buildHTML.apply(this, [$("tr[data-producttype='" + this.productType + "']")]);
+        buildProductPrice.apply(this, [$("tr[data-producttype='" + this.productType + "']")]);
     };
 
     // Local method to calculate individual product price
@@ -47,25 +47,31 @@ var AKQA = {};
     };
 
     // Local method to append the results to HTML
-    var buildHTML = function ($elem) {
+    var buildProductPrice = function ($elem) {
         var qty = products[this.productType].qty;
         $elem.find("input").val(qty);
         $elem.find(".result").text(getProductPrice.call(this, qty));
-        $elem.find(".subtotal input").val(getSubTotal());
+        buildTotal();
+    };
+
+    var buildTotal = function(){
+        $(".subtotal input").val(getSubTotal());
         $(".subtotal span").text(getSubTotal());
         $(".vat input").val(getVat());
         $(".vat span").text(getVat());
         $(".total input").val(getTotal());
         $(".total span").text(getTotal());
-    };
+    }
 
     // Local method to bind all the events of the form
     var bindEvents = function () {
         var self = this;
+        // Handle Add Quantity of individual Items
         $(".add").on("click", function () {
             self.productType = $(this).parents("tr").data("producttype");
             ns[self.productType].updateProductQuantity(++products[self.productType].qty);
         });
+        // Handle Subtract Quantity of individual Items
         $(".subtract").on("click", function () {
             self.productType = $(this).parents("tr").data("producttype");
             if (products[self.productType].qty === 0) {
@@ -73,6 +79,7 @@ var AKQA = {};
             }
             ns[self.productType].updateProductQuantity(--products[self.productType].qty);
         });
+        // Handle Change in Quantity of individual Items
         $(".qty").on("keyup change", function () {
             var qty = (new RegExp(/^\d[^\s]*$/)).test($(this).val()) ? parseInt($(this).val()) : 0;
             var time = qty ? 500 : 0;
@@ -82,8 +89,14 @@ var AKQA = {};
                 self.productType = $(_this).parents("tr").data("producttype");
                 ns[self.productType].updateProductQuantity(qty);
             }, time);
-
-        })
+        });
+        // Handle delete of products
+        $(".delete").on("click", function () {
+            var $elem = $(this).parents("tr");
+            delete products[$elem.data("producttype")];
+            $elem.remove();
+            buildTotal();
+        });
     };
 
     // Entry point to initialize the data-sets
