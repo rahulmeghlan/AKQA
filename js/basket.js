@@ -110,10 +110,10 @@ var AKQA = {};
             var time = qty ? 500 : 0;
             var _this = this;
             // Giving some interval to remove and add a new number
-            setTimeout(function () {
+//            setTimeout(function () {
                 self.productType = $(_this).parents("tr").data("producttype");
                 instances[self.productType].updateProductQuantity(qty);
-            }, time);
+//            }, time);
         });
         // Handle delete of products
         $(".delete").on("click", function () {

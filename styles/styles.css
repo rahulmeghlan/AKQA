@@ -28,13 +28,14 @@ p {
 input[type=submit] {
     margin-top: 50px;
     background-color: #000066;
+    border-color: #000066;
     font-weight: bold;
     font-size: 24px;
     box-shadow: 3px 3px 4px #888888;
 }
 
-.btn-primary[disabled]{
-   background-color: #000066;
+.btn-primary[disabled] {
+    background-color: #000066;
     border-color: #000066;
 }
 
@@ -44,8 +45,8 @@ tr td {
     color: #000;
 }
 
-form{
-    margin-bottom: 10%;
+form {
+    margin-bottom: 5%;
 }
 
 /*
@@ -82,6 +83,11 @@ form{
 
 .delete {
     cursor: pointer;
+    background: url("../images/icons.png") no-repeat 0 0;
+}
+
+.delete:hover {
+    background-position: 0 -57px;
 }
 
 .subtotal, .vat, .total {
@@ -109,7 +115,7 @@ footer {
     color: #fff;
 }
 
-footer .co-name{
+footer .co-name {
     font-weight: bold;
 }
 
